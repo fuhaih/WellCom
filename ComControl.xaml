@@ -8,18 +8,67 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <DockPanel>
         <StackPanel Width="300" DockPanel.Dock="Left">
-            <GroupBox Height="200" VerticalAlignment="Top" Header="串口设置" Margin="5,5,5,0">
-                <ComboBox Height="20" VerticalAlignment="Top" Margin="10"></ComboBox>
+            <GroupBox VerticalAlignment="Top" Header="串口设置" Margin="5,5,5,0">
+                <StackPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="端口号:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="波特率:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="数据位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="停止位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="校验位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="20" Text="流控制:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>
+                    <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+                        <CheckBox Margin="10,10,0,10">RTS</CheckBox>
+                        <CheckBox Margin="10,10,0,10">DTR</CheckBox>
+                    </WrapPanel>
+                </StackPanel>
             </GroupBox>
-            <GroupBox Height="100" VerticalAlignment="Top" Header="接收设置" Margin="5,5,5,0">
-                <RadioButton></RadioButton>
+            <GroupBox VerticalAlignment="Top" Header="接收设置" Margin="5,5,5,0">
+                <StackPanel>
+                    <WrapPanel VerticalAlignment="Top">
+                        <RadioButton Width="100"  Margin="10,10,10,0" IsChecked="True">HEX</RadioButton>
+                        <RadioButton Width="100"  Margin="10,10,10,0">ASCII</RadioButton>
+                    </WrapPanel>
+                    <WrapPanel VerticalAlignment="Top">
+                        <CheckBox Width="100"  Margin="10,10,10,10">换行显示</CheckBox>
+                        <CheckBox Width="100"  Margin="10,10,10,10">显示时间</CheckBox>
+                    </WrapPanel>
+                </StackPanel>
             </GroupBox>
-            <GroupBox Height="160" VerticalAlignment="Top" Header="发送设置" Margin="5,5,5,0">
-                <RadioButton></RadioButton>
+            <GroupBox VerticalAlignment="Top" Header="发送设置" Margin="5,5,5,0">
+                <StackPanel>
+                    <WrapPanel VerticalAlignment="Top">
+                        <RadioButton Width="100"  Margin="10,10,10,10" IsChecked="True">HEX</RadioButton>
+                        <RadioButton Width="100"  Margin="10,10,10,10">ASCII</RadioButton>
+                    </WrapPanel>
+                </StackPanel>
             </GroupBox>
         </StackPanel>
-        <ContentControl>
+        <DockPanel AllowDrop="True">
+            <DockPanel Height="100" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+                <WrapPanel Width="140" DockPanel.Dock="Right" VerticalAlignment="Center">
+                    <Button Width="100" Height="60" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">发送</Button>
+                </WrapPanel>
+                <RichTextBox ></RichTextBox>
+            </DockPanel>
             <RichTextBox></RichTextBox>
-        </ContentControl>
+        </DockPanel>
     </DockPanel>
 </UserControl>
