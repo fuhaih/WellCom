@@ -6,8 +6,12 @@
              xmlns:local="clr-namespace:WellCom"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <DockPanel>
-        <StackPanel Width="300" DockPanel.Dock="Left">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300"></ColumnDefinition>
+            <ColumnDefinition Width="70*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
             <GroupBox VerticalAlignment="Top" Header="串口设置" Margin="5,5,5,0">
                 <StackPanel>
                     <DockPanel VerticalAlignment="Top">
@@ -43,32 +47,39 @@
             <GroupBox VerticalAlignment="Top" Header="接收设置" Margin="5,5,5,0">
                 <StackPanel>
                     <WrapPanel VerticalAlignment="Top">
-                        <RadioButton Width="100"  Margin="10,10,10,0" IsChecked="True">HEX</RadioButton>
-                        <RadioButton Width="100"  Margin="10,10,10,0">ASCII</RadioButton>
+                        <RadioButton Width="80"  Margin="10,10,10,0" IsChecked="True">HEX</RadioButton>
+                        <RadioButton Width="80"  Margin="10,10,10,0">ASCII</RadioButton>
                     </WrapPanel>
                     <WrapPanel VerticalAlignment="Top">
-                        <CheckBox Width="100"  Margin="10,10,10,10">换行显示</CheckBox>
-                        <CheckBox Width="100"  Margin="10,10,10,10">显示时间</CheckBox>
+                        <CheckBox Width="80"  Margin="10,10,10,10">换行显示</CheckBox>
+                        <CheckBox Width="80"  Margin="10,10,10,10">显示时间</CheckBox>
                     </WrapPanel>
                 </StackPanel>
             </GroupBox>
             <GroupBox VerticalAlignment="Top" Header="发送设置" Margin="5,5,5,0">
                 <StackPanel>
                     <WrapPanel VerticalAlignment="Top">
-                        <RadioButton Width="100"  Margin="10,10,10,10" IsChecked="True">HEX</RadioButton>
-                        <RadioButton Width="100"  Margin="10,10,10,10">ASCII</RadioButton>
+                        <RadioButton Width="80"  Margin="10,10,10,10" IsChecked="True">HEX</RadioButton>
+                        <RadioButton Width="80"  Margin="10,10,10,10">ASCII</RadioButton>
                     </WrapPanel>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
-        <DockPanel AllowDrop="True">
-            <DockPanel Height="100" DockPanel.Dock="Bottom" VerticalAlignment="Bottom">
+        <GridSplitter Width="4"></GridSplitter>
+        <Grid Grid.Row="0" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition Height="100"></RowDefinition>
+            </Grid.RowDefinitions>
+            <RichTextBox  Grid.Row="0" Grid.Column="0"></RichTextBox>
+            <GridSplitter Height="5" HorizontalAlignment="Stretch" VerticalAlignment="Bottom"></GridSplitter>
+            <DockPanel  Grid.Row="1" Grid.Column="0"  MinHeight="100">
                 <WrapPanel Width="140" DockPanel.Dock="Right" VerticalAlignment="Center">
                     <Button Width="100" Height="60" Margin="20" HorizontalAlignment="Stretch" VerticalAlignment="Stretch">发送</Button>
                 </WrapPanel>
-                <RichTextBox ></RichTextBox>
+                <RichTextBox Width="AUTO" Height="AUTO"></RichTextBox>
             </DockPanel>
-            <RichTextBox></RichTextBox>
-        </DockPanel>
-    </DockPanel>
+            
+        </Grid>
+    </Grid>
 </UserControl>
