@@ -15,7 +15,7 @@
                 <MenuItem Header="{Binding SelectActionTabItem.Content.PortName}"/>
             </MenuItem>
         </Menu>
-        <TabControl x:Name="actionTabs" DockPanel.Dock="Right" Background="White" SelectedItem="{Binding SelectActionTabItem}" ItemsSource="{Binding Tabs}">
+        <TabControl x:Name="ActionTabs" DockPanel.Dock="Right" Background="White" SelectedItem="{Binding SelectActionTabItem}" ItemsSource="{Binding Tabs}">
             <TabControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Horizontal" Height="21" Width="100">

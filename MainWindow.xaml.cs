@@ -77,7 +77,7 @@ namespace WellCom
 
         private void TextBlock_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            Tabs.RemoveAt(actionTabs.SelectedIndex);
+            Tabs.RemoveAt(ActionTabs.SelectedIndex);
         }
     }
 }
