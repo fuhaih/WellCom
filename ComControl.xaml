@@ -5,39 +5,39 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WellCom"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800">
+             d:DesignHeight="450" d:DesignWidth="800" Loaded="UserControl_Loaded">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="300"></ColumnDefinition>
-            <ColumnDefinition Width="70*"></ColumnDefinition>
+            <ColumnDefinition Width="240" MinWidth="240"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Row="0" Grid.Column="0">
             <GroupBox VerticalAlignment="Top" Header="串口设置" Margin="5,5,5,0">
                 <StackPanel>
                     <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="端口号:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                        <TextBlock Text="端口号:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Margin="10,10,10,0" ItemsSource="{Binding PortNameOptions,Mode=OneWay}" DisplayMemberPath="Key" SelectedValuePath="Value" SelectedValue="{Binding PortName,Mode=TwoWay}"></ComboBox>
                     </DockPanel>
                     <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="波特率:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                        <TextBlock Text="波特率:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Margin="10,10,10,0" ItemsSource="{Binding BaudRateOptions,Mode=OneWay}" DisplayMemberPath="Key" SelectedValuePath="Value" SelectedValue="{Binding BaudRate}" ></ComboBox>
                     </DockPanel>
                     <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="数据位:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                        <TextBlock Text="数据位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Margin="10,10,10,0" ItemsSource="{Binding DataBitsOptions,Mode=OneWay}" DisplayMemberPath="Key" SelectedValuePath="Value" SelectedValue="{Binding DataBits}" ></ComboBox>
                     </DockPanel>
                     <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="停止位:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                        <TextBlock Text="停止位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Margin="10,10,10,0"  ItemsSource="{Binding StopBitOptions,Mode=OneWay}" DisplayMemberPath="Key" SelectedValuePath="Value" SelectedValue="{Binding StopBits}"></ComboBox>
                     </DockPanel>
                     <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="校验位:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
+                        <TextBlock Text="校验位:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Margin="10,10,10,0" ItemsSource="{Binding ParityOptions,Mode=OneWay}" DisplayMemberPath="Key" SelectedValuePath="Value" SelectedValue="{Binding Parity}" ></ComboBox>
                     </DockPanel>
-                    <DockPanel VerticalAlignment="Top">
-                        <TextBlock Height="20" Text="流控制:" Margin="10,10,0,0"></TextBlock>
-                        <ComboBox Height="20" Margin="10,10,10,0" ></ComboBox>
-                    </DockPanel>
+                    <!--<DockPanel VerticalAlignment="Top">
+                        <TextBlock Height="25" Text="流控制:" Margin="10,10,0,0"></TextBlock>
+                        <ComboBox Height="25" Margin="10,10,10,0" ></ComboBox>
+                    </DockPanel>-->
                     <WrapPanel VerticalAlignment="Top" HorizontalAlignment="Center">
                         <CheckBox Margin="10,10,0,10">RTS</CheckBox>
                         <CheckBox Margin="10,10,0,10">DTR</CheckBox>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,20 +21,36 @@ namespace WellCom
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow : Window, INotifyPropertyChanged
     {
         public string TestName { get; set; } = "测试数据";
 
         public ObservableCollection<ActionTabItem> Tabs { get; set; } = new ObservableCollection<ActionTabItem>();
 
+        private ActionTabItem _selectActionTabItem;
+
+        /// <summary>
+        /// tab选项
+        /// </summary>
+        public ActionTabItem SelectActionTabItem { 
+            get {
+                return _selectActionTabItem;
+            } set { 
+                _selectActionTabItem = value;
+                PropertyChanged?.Invoke(this,new PropertyChangedEventArgs("SelectActionTabItem"));
+            } }
+
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = this;
             // Bind the xaml TabControl to view model tabs
-            actionTabs.ItemsSource = Tabs;
+            //actionTabs.ItemsSource = Tabs;
             // Populate the view model tabs
             //vmd.Populate();
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
