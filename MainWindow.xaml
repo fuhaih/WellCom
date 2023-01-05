@@ -6,7 +6,19 @@
         xmlns:local="clr-namespace:WellCom"
         mc:Ignorable="d"
         Title="串口调试工具" Height="600" Width="1000" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="ToggleButton" x:Key="PlayButton">
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Content" Value="{StaticResource PlayPng}"/>
+            <Style.Triggers>
+                <Trigger Property="IsChecked" Value="True">
+                    <Setter Property="Content" Value="{StaticResource PausePng}"/>
+                </Trigger>
+            </Style.Triggers>
+        </Style>
+    </Window.Resources>
     <DockPanel>
+        <!--菜单栏-->
         <Menu DockPanel.Dock="Top">
             <MenuItem Header="编辑" >
                 <MenuItem Command="ApplicationCommands.Copy"/>
@@ -15,6 +27,13 @@
                 <MenuItem Header="{Binding SelectActionTabItem.Content.PortName}"/>
             </MenuItem>
         </Menu>
+        <Menu DockPanel.Dock="Top" Padding="5">
+            <ToggleButton Width="40" Height="40" Style="{StaticResource PlayButton}" IsChecked="{Binding SelectActionTabItem.Content.IsOpen}">
+            </ToggleButton>
+        </Menu>
+        <!--状态栏-->
+        <TextBlock DockPanel.Dock="Bottom" Height="20"></TextBlock>
+        <!--面板-->
         <TabControl x:Name="ActionTabs" DockPanel.Dock="Right" Background="White" SelectedItem="{Binding SelectActionTabItem}" ItemsSource="{Binding Tabs}">
             <TabControl.ItemTemplate>
                 <DataTemplate>

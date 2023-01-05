@@ -15,13 +15,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WellCom.Models;
 
 namespace WellCom
 {
     /// <summary>
     /// ComControl.xaml 的交互逻辑
     /// </summary>
-    public partial class ComControl : UserControl , INotifyPropertyChanged
+    public partial class ComControl : UserControl , INotifyPropertyChanged, IOpenSourceControl
     {
         /// <summary>
         /// 停止位选项
@@ -47,6 +48,8 @@ namespace WellCom
         /// 串口号选项
         /// </summary>
         public ObservableCollection<KeyValuePair<string, string>> PortNameOptions { get; set; } = new ObservableCollection<KeyValuePair<string, string>>();
+
+        public SerialPort SerialPortInstance = new SerialPort();
 
         /// <summary>
         /// 停止位
@@ -81,6 +84,19 @@ namespace WellCom
             }
         }
 
+        private bool _isOpen = false;
+
+        public bool IsOpen { 
+            get
+            {
+                return _isOpen;
+            }
+            set {
+                _isOpen = value;
+                PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("IsOpen"));
+            }
+        }
+
         public ComControl()
         {
             InitializeComponent();
@@ -92,9 +108,12 @@ namespace WellCom
 
         private void UserControl_Loaded(object sender, RoutedEventArgs e)
         {
-
+            
         }
 
+        /// <summary>
+        /// 初始化数据/下拉选项
+        /// </summary>
         private void Init_Data()
         {
             //停止位选项

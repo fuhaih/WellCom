@@ -8,6 +8,21 @@
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="/WellCom;component/Styles/Style.xaml" />
             </ResourceDictionary.MergedDictionaries>
+            <Image x:Key="PausePng" Source="/WellCom;component/Images/pause.png"/>
+            <Image x:Key="PlayPng" Source="/WellCom;component/Images/play.png"/>
+            <!--<Style TargetType="ToggleButton" x:Key="PlayButton">
+                <Setter Property="Content" Value="{StaticResource PausePng}"/>
+                <Style.Triggers>
+                    <Trigger Property="IsChecked" Value="True">
+                        <Setter Property="Content" Value="{StaticResource PlayPng}"/>
+                    </Trigger>
+                </Style.Triggers>
+            </Style>-->
+            <!--<Style TargetType="Menu">
+                <Setter Property="Background" Value="{StaticResource WindowColor}"/>
+            </Style>-->
         </ResourceDictionary>
+
+        
     </Application.Resources>
 </Application>
